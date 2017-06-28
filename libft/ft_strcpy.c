@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/05/29 08:04:32 by hstander          #+#    #+#             */
+/*   Updated: 2017/05/29 17:22:19 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-
-int		key_hook(int keycode, void *param)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	int i;
+
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = src[i];
+	return (dst);
 }

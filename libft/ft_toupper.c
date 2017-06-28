@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/05/29 16:08:37 by hstander          #+#    #+#             */
+/*   Updated: 2017/05/31 15:49:52 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-
-int		key_hook(int keycode, void *param)
+int	ft_toupper(int c)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }

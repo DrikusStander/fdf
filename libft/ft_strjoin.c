@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/06/01 12:39:18 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/19 16:07:23 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	char	*ptr;
+	int		s1len;
+	int		i;
+
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	i = 0;
+	s1len = ft_strlen(s1);
+	if ((ptr = (char *)malloc(s1len + ft_strlen(s2) + 1)) == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	i = 0;
+	while (s2[i])
+	{
+		ptr[s1len + i] = s2[i];
+		i++;
+	}
+	ptr[s1len + i] = '\0';
+	return (ptr);
 }

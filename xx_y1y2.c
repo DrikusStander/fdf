@@ -6,13 +6,13 @@
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 15:51:07 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/26 16:00:41 by hstander         ###   ########.fr       */
+/*   Updated: 2017/06/28 09:53:31 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	xx_y1y2(t_cord *cord, t_mlx *mlx, t_points *points)
+void	xx_y1y2(t_cord *cord, t_mlx *mlx, t_points *points, int color)
 {
 	int i;
 
@@ -21,7 +21,7 @@ void	xx_y1y2(t_cord *cord, t_mlx *mlx, t_points *points)
 	{
 		while(i <= cord->step)
 		{
-			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, 0x00ff0000);
+			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->y += cord->dy;
 			i++;
 		}
@@ -30,14 +30,14 @@ void	xx_y1y2(t_cord *cord, t_mlx *mlx, t_points *points)
 	{
 		while(i <= cord->step)
 		{
-			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, 0x00ff0000);
+			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->y -= cord->dy;
 			i++;
 		}
 	}
 }
 
-void	yy_x1x2(t_cord *cord, t_mlx *mlx, t_points *points)
+void	yy_x1x2(t_cord *cord, t_mlx *mlx, t_points *points, int color)
 {
 	int i;
 
@@ -46,7 +46,7 @@ void	yy_x1x2(t_cord *cord, t_mlx *mlx, t_points *points)
 	{
 		while(i <= cord->step)
 		{
-			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, 0x00ff0000);
+			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->x += cord->dx;
 			i++;
 		}
@@ -55,7 +55,7 @@ void	yy_x1x2(t_cord *cord, t_mlx *mlx, t_points *points)
 	{
 		while(i <= cord->step)
 		{
-			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, 0x00ff0000);
+			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->x -= cord->dx;
 			i++;
 		}

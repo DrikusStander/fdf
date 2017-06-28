@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/06/09 10:34:51 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/09 11:07:11 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	while (lst != NULL)
+	{
+		f(lst);
+		lst = lst->next;
+	}
 }

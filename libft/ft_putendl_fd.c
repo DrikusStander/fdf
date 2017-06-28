@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/06/01 15:14:24 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/09 07:27:43 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
 }

@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/05/29 16:43:00 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/09 12:59:05 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+void	*ft_memchr(const void *src, int c, size_t n)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	size_t			i;
+	unsigned char	*s;
+
+	i = 0;
+	s = (unsigned char *)src;
+	while (i < n)
+	{
+		if (s[i] == (unsigned char)c)
+		{
+			return (s + i);
+		}
+		i++;
+	}
+	return (NULL);
 }

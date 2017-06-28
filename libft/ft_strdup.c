@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/05/29 16:44:25 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/19 17:07:30 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+char	*ft_strdup(const char *s)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	char	*ptr;
+	int		len;
+
+	len = ft_strlen(s);
+	if ((ptr = (char *)malloc(sizeof(char) * len + 1)) == NULL)
+		return (NULL);
+	ft_memcpy(ptr, s, len + 1);
+	return (ptr);
 }

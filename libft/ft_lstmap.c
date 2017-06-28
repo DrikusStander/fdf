@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/06/09 11:08:38 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/09 14:17:47 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	t_list	*start;
+	t_list	*new;
+	t_list	*temp;
+
+	if ((start = f(lst)) == NULL)
+		return (NULL);
+	lst = lst->next;
+	new = start;
+	while (lst != NULL)
+	{
+		temp = new;
+		if ((new = f(lst)) == NULL)
+			return (NULL);
+		temp->next = new;
+		lst = lst->next;
+	}
+	new->next = NULL;
+	return (start);
 }

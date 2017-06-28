@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/06/01 11:53:01 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/10 13:30:03 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	char	*ptr;
+	size_t	i;
+
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	if ((ptr = (char *)malloc(sizeof(char) * len + 1)) == NULL)
+		return (NULL);
+	while (s[start] != '\0' && i < len)
+	{
+		ptr[i] = s[start];
+		i++;
+		start++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

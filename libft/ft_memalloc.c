@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/05/31 16:23:50 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/09 08:05:49 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+void	*ft_memalloc(size_t size)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	char *ptr;
+
+	if ((ptr = malloc(size)) == NULL)
+		return (NULL);
+	ft_bzero(ptr, size);
+	return (ptr);
 }

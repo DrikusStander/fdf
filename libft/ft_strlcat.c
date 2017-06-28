@@ -1,21 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/05/29 06:45:37 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/09 07:50:44 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	size_t	n;
+	size_t	dlen;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	n = size;
+	while (n-- != 0 && dest[i] != '\0')
+		i++;
+	dlen = i;
+	n = size - dlen;
+	if (n == 0)
+		return (dlen + ft_strlen(src));
+	while (src[j])
+	{
+		if (n != 1)
+		{
+			dest[i++] = src[j];
+			n--;
+		}
+		j++;
+	}
+	dest[i] = '\0';
+	return (dlen + j);
 }

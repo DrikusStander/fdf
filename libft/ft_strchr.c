@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/26 15:56:25 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/27 11:10:05 by hstander         ###   ########.fr       */
+/*   Created: 2017/05/29 16:46:23 by hstander          #+#    #+#             */
+/*   Updated: 2017/06/17 10:54:18 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		key_hook(int keycode, void *param)
+char	*ft_strchr(const char *s, int c)
 {
-	(void)param;
-	if (keycode == 53)
-		exit (0);
-	return (0);
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			return ((char *)s + i);
+		}
+		i++;
+	}
+	if (s[i] == c)
+	{
+		return ((char *)s + i);
+	}
+	else
+		return (NULL);
 }
