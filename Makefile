@@ -1,6 +1,6 @@
 NAME = fdf
 
-SRC = 	new.c	keyhook.c	xx_y1y2.c	xy1_xy2.c putline.c toiso.c
+SRC = 	fdf.c	keyhook.c	xx_y1y2.c	xy1_xy2.c putline.c toiso.c readmap.c
 
 LIBS = -lmlx -L./libft -lft 
 

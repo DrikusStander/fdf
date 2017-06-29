@@ -6,7 +6,7 @@
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 15:51:07 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/28 09:53:31 by hstander         ###   ########.fr       */
+/*   Updated: 2017/06/29 09:21:39 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	xx_y1y2(t_cord *cord, t_mlx *mlx, t_points *points, int color)
 	i = 1;
 	if (points->y1 < points->y2)
 	{
-		while(i <= cord->step)
+		while (i <= cord->step)
 		{
 			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->y += cord->dy;
@@ -28,7 +28,7 @@ void	xx_y1y2(t_cord *cord, t_mlx *mlx, t_points *points, int color)
 	}
 	else
 	{
-		while(i <= cord->step)
+		while (i <= cord->step)
 		{
 			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->y -= cord->dy;
@@ -44,7 +44,7 @@ void	yy_x1x2(t_cord *cord, t_mlx *mlx, t_points *points, int color)
 	i = 1;
 	if (points->x1 < points->x2)
 	{
-		while(i <= cord->step)
+		while (i <= cord->step)
 		{
 			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->x += cord->dx;
@@ -53,7 +53,7 @@ void	yy_x1x2(t_cord *cord, t_mlx *mlx, t_points *points, int color)
 	}
 	else
 	{
-		while(i <= cord->step)
+		while (i <= cord->step)
 		{
 			mlx_pixel_put(mlx->mlx, mlx->win, cord->x, cord->y, color);
 			cord->x -= cord->dx;
