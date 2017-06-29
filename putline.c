@@ -6,7 +6,7 @@
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 14:54:39 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/29 09:09:47 by hstander         ###   ########.fr       */
+/*   Updated: 2017/06/29 16:40:58 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	put_line(t_points *points, t_mlx *mlx, int color)
 {
 	t_cord cord;
 
-	cord.dx = abs(points->x2 - points->x1);
-	cord.dy = abs(points->y2 - points->y1);
+	cord.dx = ABS(points->x2 - points->x1);
+	cord.dy = ABS(points->y2 - points->y1);
 	if (cord.dx >= cord.dy)
 		cord.step = cord.dx;
 	else

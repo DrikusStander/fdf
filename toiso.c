@@ -6,7 +6,7 @@
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 08:05:37 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/29 15:03:59 by hstander         ###   ########.fr       */
+/*   Updated: 2017/06/29 16:52:13 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 void	toiso(t_points *points)
 {
-	points->x1 = (points->x1 - points->y1) + 400;
-	points->y1 = (points->x1 + (points->y1 - points->z1)) / 2;
-	points->x2 = (points->x2 - points->y2) + 400;
-	points->y2 = (points->x2 + (points->y2 - points->z2)) / 2;
+	int x1;
+	int x2;
+	int y1;
+	int y2;
+
+	x1 = points->x1;
+	x2 = points->x2;
+	y1 = points->y1;
+	y2 = points->y2;
+	points->x1 = ((x1 - y1) + 400);
+	points->y1 = ((x1 + (y1 - points->z1)) / 2) + 50;
+	points->x2 = ((x2 - y2) + 400);
+	points->y2 = ((x2 + (y2 - points->z2)) / 2) + 50;
 }

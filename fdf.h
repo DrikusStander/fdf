@@ -6,12 +6,13 @@
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 13:36:49 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/29 09:35:25 by hstander         ###   ########.fr       */
+/*   Updated: 2017/06/29 16:31:57 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+# define ABS(N) ((N < 0) ? -(N) : N)
 # include <mlx.h>
 # include <math.h>
 # include <stdlib.h>
