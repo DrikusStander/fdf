@@ -33,6 +33,9 @@ typedef	struct	s_mlx
 	void		*mlx;
 	void		*win;
 	int			color;
+	float		var_z;
+	float		zoom;
+	char		*file;
 }				t_mlx;
 
 typedef struct	s_points
@@ -44,7 +47,8 @@ typedef struct	s_points
 	int			y2;
 	int			z2;
 	char		**prev;
-	char		**arr;
+	char		**arr
+
 
 }				t_points;
 
@@ -54,6 +58,8 @@ typedef struct	s_count
 	int			j;
 	int			k;
 	int			fd;
+	int 			sc;
+	float			sz;
 }				t_count;
 
 typedef struct	s_iso
@@ -71,8 +77,8 @@ void			x2y1_x1y2(t_cord *cord, t_mlx *mlx, int color);
 void			xx_y1y2(t_cord *cord, t_mlx *mlx, t_points *points, int color);
 void			yy_x1x2(t_cord *cord, t_mlx *mlx, t_points *points, int color);
 void			put_line(t_points *points, t_mlx *mlx, int color);
-int				key_hook(int keycode, void *param);
-void			toiso(t_points *points);
+int				key_hook(int keycode, t_mlx *param);
+void			toiso(t_points *points, t_mlx *mlx);
 void			readmap(char *file, t_mlx *mlx);
 void			drawloop(t_points *points, t_count *c, t_mlx *mlx);
 void			draw_left(t_count *c, t_points *points, t_mlx *mlx);

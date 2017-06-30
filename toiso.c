@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void	toiso(t_points *points)
+void	toiso(t_points *points, t_mlx *mlx)
 {
 	int x1;
 	int x2;
@@ -23,8 +23,8 @@ void	toiso(t_points *points)
 	x2 = points->x2;
 	y1 = points->y1;
 	y2 = points->y2;
-	points->x1 = ((x1 - y1) + 400);
-	points->y1 = ((x1 + (y1 - points->z1)) / 2) + 50;
-	points->x2 = ((x2 - y2) + 400);
-	points->y2 = ((x2 + (y2 - points->z2)) / 2) + 50;
+	points->x1 = ((x1 - y1) + (400 / mlx->zoom)) * mlx->zoom;
+	points->y1 = ((x1 + (y1 - points->z1)) / 2) + 200;
+	points->x2 = ((x2 - y2) + (400/mlx->zoom)) * mlx->zoom;
+	points->y2 = ((x2 + (y2 - points->z2)) / 2) + 200;
 }

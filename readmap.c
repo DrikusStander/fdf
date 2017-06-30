@@ -14,25 +14,25 @@
 
 void	draw_right(t_count *c, t_points *points, t_mlx *mlx)
 {
-	points->x1 = ((c->i - 1) * 20) + 100;
-	points->y1 = (c->j * 20) + 100;
-	points->z1 = (ft_atoi(points->arr[c->i - 1]) * 20) + 100;
-	points->x2 = (c->i * 20) + 100;
-	points->y2 = (c->j * 20) + 100;
-	points->z2 = (ft_atoi(points->arr[c->i]) * 20) + 100;
-	toiso(points);
+	points->x1 = ((c->i - 1) * c->sc) + 100;
+	points->y1 = (c->j * c->sc) + 100;
+	points->z1 = (ft_atoi(points->arr[c->i - 1]) * c->sz) + 100;
+	points->x2 = (c->i * c->sc) + 100;
+	points->y2 = (c->j * c->sc) + 100;
+	points->z2 = (ft_atoi(points->arr[c->i]) * c->sz) + 100;
+	toiso(points, mlx);
 	put_line(points, mlx, mlx->color);
 }
 
 void	draw_left(t_count *c, t_points *points, t_mlx *mlx)
 {
-	points->x1 = (((c->k) * 20) + 100);
-	points->y1 = ((c->j - 1) * 20) + 100;
-	points->z1 = (ft_atoi(points->prev[c->k]) * 20) + 100;
-	points->x2 = ((c->k) * 20) + 100;
-	points->y2 = (c->j * 20) + 100;
-	points->z2 = (ft_atoi(points->arr[c->k]) * 20) + 100;
-	toiso(points);
+	points->x1 = (((c->k) * c->sc) + 100);
+	points->y1 = ((c->j - 1) * c->sc) + 100;
+	points->z1 = (ft_atoi(points->prev[c->k]) * c->sz) + 100;
+	points->x2 = ((c->k) * c->sc) + 100;
+	points->y2 = (c->j * c->sc) + 100;
+	points->z2 = (ft_atoi(points->arr[c->k]) * c->sz) + 100;
+	toiso(points, mlx);
 	put_line(points, mlx, mlx->color);
 	c->k++;
 }
@@ -67,10 +67,14 @@ void	readmap(char *file, t_mlx *mlx)
 {
 	t_points	points;
 	t_count		c;
-
+	
+	mlx_clear_window(mlx->mlx, mlx->win);
 	ft_bzero(&c, sizeof(t_count));
+	ft_bzero(&points, sizeof(t_points));
 	c.i = 1;
-	mlx->color = 0xffffff;
+	c.sc = 20;
+	c.sz = c.sc * mlx->var_z;
+	mlx->color = 0x0000ff00;
 	c.fd = open(file, O_RDONLY);
 	drawloop(&points, &c, mlx);
 	close(c.fd);
