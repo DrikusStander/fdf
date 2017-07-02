@@ -6,7 +6,7 @@
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/26 13:36:49 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/29 16:31:57 by hstander         ###   ########.fr       */
+/*   Updated: 2017/07/02 14:16:08 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef	struct	s_mlx
 	void		*win;
 	int			color;
 	float		var_z;
+	float		view;
 	float		zoom;
 	char		*file;
 }				t_mlx;
@@ -47,9 +48,7 @@ typedef struct	s_points
 	int			y2;
 	int			z2;
 	char		**prev;
-	char		**arr
-
-
+	char		**arr;
 }				t_points;
 
 typedef struct	s_count
@@ -58,8 +57,8 @@ typedef struct	s_count
 	int			j;
 	int			k;
 	int			fd;
-	int 			sc;
-	float			sz;
+	int			sc;
+	float		sz;
 }				t_count;
 
 typedef struct	s_iso
@@ -83,5 +82,9 @@ void			readmap(char *file, t_mlx *mlx);
 void			drawloop(t_points *points, t_count *c, t_mlx *mlx);
 void			draw_left(t_count *c, t_points *points, t_mlx *mlx);
 void			draw_right(t_count *c, t_points *points, t_mlx *mlx);
+void			zoom_in(t_mlx *parm);
+void			zoom_out(t_mlx *parm);
+void			raise_z(t_mlx *parm);
+void			lower_z(t_mlx *parm);
 
 #endif

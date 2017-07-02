@@ -6,7 +6,7 @@
 /*   By: hstander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/29 08:48:34 by hstander          #+#    #+#             */
-/*   Updated: 2017/06/29 15:56:10 by hstander         ###   ########.fr       */
+/*   Updated: 2017/07/02 14:23:21 by hstander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,14 @@ void	drawloop(t_points *points, t_count *c, t_mlx *mlx)
 			{
 				while (points->prev[c->k])
 					draw_left(c, points, mlx);
-			//free(points->prev);
 			}
 			c->i++;
 		}
 		c->j++;
 		c->k = 0;
 		c->i = 1;
+		if (points->prev != NULL)
+			free(points->prev);
 		free(points->arr);
 		points->prev = ft_strsplit(line, ' ');
 	}
@@ -67,12 +68,13 @@ void	readmap(char *file, t_mlx *mlx)
 {
 	t_points	points;
 	t_count		c;
-	
+
 	mlx_clear_window(mlx->mlx, mlx->win);
 	ft_bzero(&c, sizeof(t_count));
 	ft_bzero(&points, sizeof(t_points));
 	c.i = 1;
-	c.sc = 20;
+	c.sc = 2;
+	c.sc *= mlx->zoom;
 	c.sz = c.sc * mlx->var_z;
 	mlx->color = 0x0000ff00;
 	c.fd = open(file, O_RDONLY);

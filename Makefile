@@ -1,6 +1,6 @@
 NAME = fdf
 
-SRC = 	fdf.c	keyhook.c	xx_y1y2.c	xy1_xy2.c putline.c toiso.c readmap.c
+SRC = fdf.c	keyhook.c xx_y1y2.c	xy1_xy2.c putline.c toiso.c readmap.c
 
 LIBS = -lmlx -L./libft -lft 
 
@@ -10,13 +10,16 @@ HEADERS = fdf.h
 
 all : $(NAME)
 
-$(NAME) : 
+$(NAME) :
+	make -C ./libft/
 	gcc -o $(NAME) $(SRC) $(FLAGS)
 
 clean:
-	rm -f $(NAME)
+	make clean -C ./libft/
 
 fclean: clean
+	make fclean -C ./libft/
 	rm -f $(NAME)
 
 re: fclean all
+	make re -C ./libft/
